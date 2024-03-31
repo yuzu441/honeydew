@@ -1,0 +1,25 @@
+{
+  "name": "ssh-config-generator",
+  "module": "index.ts",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "prepare": "git config --local core.hooksPath .githooks || echo 'Can not set git hooks'"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.6.3",
+    "@types/bun": "latest",
+    "@types/validator": "^13.11.9",
+    "lint-staged": "^15.2.2"
+  },
+  "dependencies": {
+    "untildify": "^5.0.0",
+    "valibot": "^0.30.0",
+    "validator": "^13.11.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "biome check --apply --no-errors-on-unmatched"
+    ]
+  }
+}
