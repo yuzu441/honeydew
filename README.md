@@ -1,9 +1,11 @@
-# ssh-config-generator
+# honeydew
 
-To install dependencies:
+## how to use
 
-```bash
-bun install
+install:
+
+```sh
+npm i -g @yuzu441/honeydew
 ```
 
 To run:
@@ -12,7 +14,7 @@ Create ssh config file. The file name must end with `.config.ts`.
 
 ```typescript
 // config/example.com.config.ts
-import { SshConfig } from "../src/sshConfig"
+import { SshConfig } from "@yuzu441/honeydew"
 
 export default new SshConfig("example.com", {
   hostname: "example.com",
@@ -23,7 +25,7 @@ export default new SshConfig("example.com", {
 ```
 
 ```bash
-bun run src/cli/bin.ts --config=./config/ --output=~/.ssh/config
+honeydew --config=./config/ --output=~/.ssh/config
 ```
 
 generated config. If the `--output` flag is omitted, the output will be sent to stdout.

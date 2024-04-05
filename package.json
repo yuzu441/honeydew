@@ -1,16 +1,28 @@
 {
-  "name": "ssh-config-generator",
-  "module": "index.ts",
+  "name": "@yuzu441/honeydew",
+  "description": "Generating SSH Configurations Using TypeScript",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "version": "0.0.1",
+  "author": "yuzu441",
+  "license": "MIT",
+  "homepage": "https://gihtub.com/yuzu441/",
   "type": "module",
+  "bin": {
+    "honeydew": "dist/honeydew"
+  },
   "scripts": {
-    "prepare": "git config --local core.hooksPath .githooks || echo 'Can not set git hooks'"
+    "prepare": "git config --local core.hooksPath .githooks || echo 'Can not set git hooks'",
+    "build": "bun run build.mts && bun build ./src/cli/bin.ts --compile --minify --target node --outfile ./dist/honeydew",
+    "prepublish": "bun run build"
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.3",
     "@types/bun": "latest",
     "@types/validator": "^13.11.9",
-    "lint-staged": "^15.2.2"
+    "bun-plugin-dts": "^0.2.1",
+    "lint-staged": "^15.2.2",
+    "typescript": "^5.4.4"
   },
   "dependencies": {
     "untildify": "^5.0.0",

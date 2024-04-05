@@ -1,0 +1,14 @@
+.githooks/
+.vscode/
+sample/
+node_modules/
+src/
+
+# files
+tsconnfig.json
+.gitignore
+renovate.json
+tsconfig.json
+biome.json
+build.mts
+bun.lockb
