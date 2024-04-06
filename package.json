@@ -6,7 +6,7 @@
   "version": "0.0.1",
   "author": "yuzu441",
   "license": "MIT",
-  "homepage": "https://gihtub.com/yuzu441/",
+  "homepage": "https://github.com/yuzu441/honeydew",
   "type": "module",
   "bin": {
     "honeydew": "dist/honeydew"
