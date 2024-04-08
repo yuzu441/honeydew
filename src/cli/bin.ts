@@ -1,3 +1,5 @@
+#! /usr/bin/env bun
+
 import * as fs from "node:fs/promises"
 import * as path from "node:path"
 import { parseArgs } from "node:util"
