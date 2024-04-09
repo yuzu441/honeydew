@@ -9,12 +9,12 @@
   "homepage": "https://github.com/yuzu441/honeydew",
   "type": "module",
   "bin": {
-    "honeydew": "dist/honeydew"
+    "honeydew": "./src/cli/bin.ts"
   },
   "scripts": {
     "prepare": "git config --local core.hooksPath .githooks || echo 'Can not set git hooks'",
-    "build": "bun run build.mts && bun build ./src/cli/bin.ts --compile --minify --target node --outfile ./dist/honeydew",
-    "prepublish": "bun run build"
+    "build": "git clean -dfx dist/ && bun run build.mts",
+    "prepublishOnly": "bun run build"
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.3",
