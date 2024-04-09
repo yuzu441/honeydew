@@ -3,7 +3,7 @@
   "description": "Generating SSH Configurations Using TypeScript",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "yuzu441",
   "license": "MIT",
   "homepage": "https://github.com/yuzu441/honeydew",
