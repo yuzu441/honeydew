@@ -1,0 +1,21 @@
+name: github-label-sync
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/github-label-sync.yml
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 5
+
+    steps:
+      - uses: yuzu441/workflows/.github/actions/github-label-sync-action@main
+        with:
+          source_path: .github/labels.yaml
+          source_repository: yuzu441/workflows
