@@ -1,4 +1,5 @@
 .githooks/
+.github/
 .vscode/
 sample/
 node_modules/
