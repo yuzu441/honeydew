@@ -9,7 +9,7 @@
   "homepage": "https://github.com/yuzu441/honeydew",
   "type": "module",
   "bin": {
-    "honeydew": "./src/cli/bin.ts"
+    "honeydew": "./dist/bin/honeydew"
   },
   "scripts": {
     "prepare": "git config --local core.hooksPath .githooks || echo 'Can not set git hooks'",
