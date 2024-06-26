@@ -1,0 +1,50 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  compile:
+    name: bun build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        include:
+          - binary-name: honeydew_linux_x64
+            target: bun-linux-x64-modern
+          - binary-name: honeydew_macos_arm64
+            target: bun-darwin-arm64
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - name: prepare
+        run: |
+          bun install
+          mkdir release
+      - name: Build for Linux
+        run: |
+          bun build --compile --target=${{ matrix.target }} ./cli/bin.ts --outfile release/${{ matrix.binary-name }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.binary-name }}
+          path: release
+    
+  release:
+    needs: compile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: honeydew_linux_x64
+          path: release
+      - uses: actions/download-artifact@v4
+        with:
+          name: honeydew_macos_arm64
+          path: release
+      - uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: release/*
