@@ -26,7 +26,7 @@ jobs:
           mkdir release
       - name: Build for Linux
         run: |
-          bun build --compile --target=${{ matrix.target }} ./cli/bin.ts --outfile release/${{ matrix.binary-name }}
+          bun build --compile --target=${{ matrix.target }} ./src/cli/bin.ts --outfile release/${{ matrix.binary-name }}
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.binary-name }}
